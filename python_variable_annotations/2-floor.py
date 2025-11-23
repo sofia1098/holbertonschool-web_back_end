@@ -1,40 +1,41 @@
 #!/usr/bin/env python3
 """
-This module provides type conversion operations for numeric types.
+This module provides mathematical operations for floating-point numbers.
 
-It contains a type-annotated function called 'to_str' that takes a float
-argument and returns its string representation. This conversion is useful
-for displaying numeric values as text or for string manipulation operations.
+It contains a type-annotated function called 'floor' that takes a float
+argument and returns the floor value as an integer. The floor operation
+returns the largest integer less than or equal to the given number.
 The function demonstrates proper type annotations in Python 3 and follows
-best practices for documentation and type conversion operations.
+best practices for documentation and mathematical operations.
 """
+import math
 
 
-def to_str(n: float) -> str:
+def floor(n: float) -> int:
     """
-    Convert a floating-point number to its string representation.
+    Return the floor of a floating-point number as an integer.
 
-    This function takes a floating-point number and returns a string
-    that represents the numeric value as text. The conversion preserves
-    the decimal representation of the number, making it suitable for
-    display purposes, logging, or any operation that requires string
-    manipulation of numeric values. The function is properly type-annotated
-    to ensure type safety and clear documentation.
+    This function takes a floating-point number and returns the largest
+    integer that is less than or equal to the input number. The floor
+    operation effectively rounds down the number to the nearest integer.
+    For positive numbers, it truncates the decimal part. For negative
+    numbers, it rounds toward negative infinity to the next lower integer.
+    This function uses the math.floor() method for accurate results.
 
     Args:
-        n: The floating-point number to convert to a string.
+        n: The floating-point number to calculate the floor of.
 
     Returns:
-        A string representation of the float value n.
+        An integer representing the floor value of n.
 
     Examples:
-        >>> to_str(3.14)
-        '3.14'
-        >>> to_str(10.0)
-        '10.0'
-        >>> to_str(-5.5)
-        '-5.5'
-        >>> to_str(0.0)
-        '0.0'
+        >>> floor(3.14)
+        3
+        >>> floor(5.9)
+        5
+        >>> floor(-2.3)
+        -3
+        >>> floor(10.0)
+        10
     """
-    return str(n)
+    return math.floor(n)

@@ -1,39 +1,38 @@
 #!/usr/bin/env python3
 """
-This module provides utility functions for key-value pair operations.
+This module provides mathematical operations for mixed-type lists.
 
-It contains a type-annotated function called 'to_kv' that takes a string
-and a numeric value (int or float) as arguments and returns a tuple.
-The function demonstrates proper type annotations for Union types and
-tuple operations in Python 3, following best practices for documentation
-and type safety with multiple accepted types.
+It contains a type-annotated function called 'sum_mixed_list' that takes
+a list containing both integers and floats as argument and returns their
+sum as a float. The function demonstrates proper type annotations for
+Union types with lists in Python 3, following best practices for handling
+multiple numeric types and ensuring type safety in mathematical operations.
 """
-from typing import Union, Tuple
+from typing import List, Union
 
 
-def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     """
-    Create a tuple with a string key and the square of a numeric value.
+    Calculate and return the sum of all integers and floats in a list.
 
-    This function takes a string and a numeric value (either int or float)
-    and returns a tuple where the first element is the string key and the
-    second element is the square of the numeric value as a float. The
-    squaring operation converts any integer input to float in the result,
-    ensuring consistent return type annotation.
+    This function takes a list containing a mix of integers and floating-point
+    numbers and returns the total sum of all elements as a float. It works
+    with any combination of int and float values, automatically converting
+    the result to a float type. The function uses Python's built-in sum()
+    function for efficient calculation.
 
     Args:
-        k: A string that will be the first element of the tuple.
-        v: An integer or float value to be squared.
+        mxd_lst: A list containing integers and/or floats to sum.
 
     Returns:
-        A tuple containing the string k and the square of v as a float.
+        A float representing the sum of all numbers in mxd_lst.
 
     Examples:
-        >>> to_kv("eggs", 3)
-        ('eggs', 9.0)
-        >>> to_kv("school", 0.02)
-        ('school', 0.0004)
-        >>> to_kv("number", 5)
-        ('number', 25.0)
+        >>> sum_mixed_list([5, 4, 3.14, 666, 0.99])
+        679.13
+        >>> sum_mixed_list([1, 2, 3])
+        6.0
+        >>> sum_mixed_list([1.5, 2.5, 3.5])
+        7.5
     """
-    return (k, float(v ** 2))
+    return float(sum(mxd_lst))

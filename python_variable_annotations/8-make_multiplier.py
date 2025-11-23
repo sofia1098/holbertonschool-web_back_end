@@ -39,5 +39,5 @@ def make_multiplier(multiplier: float) -> Callable[[float], float]:
     def multiplier_function(n: float) -> float:
         """Multiply the given float by the captured multiplier."""
         return n * multiplier
-    
+
     return multiplier_function
