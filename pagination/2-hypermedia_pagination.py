@@ -40,11 +40,11 @@ class Server:
         dataset = self.dataset()
         return dataset[start:end]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """Return A dict with the data of the page."""
         data = self.get_page(page, page_size)
         total_items = len(self.dataset())
-        total_pages = ceil(total_intems / page_size)
+        total_pages = ceil(total_items / page_size)
         next_page = page + 1 if page < total_pages else None
         prev = page - 1 if page > 1 else None
 
