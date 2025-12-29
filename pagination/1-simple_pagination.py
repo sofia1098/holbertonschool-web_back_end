@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
+""" Simple function for pagination. """
 import csv
 from typing import List
-""" Simple function for pagination. """
 
 
 def index_range(page: int, page_size: int) -> tuple:
@@ -30,7 +30,7 @@ class Server:
 
         return self.__dataset
 
-    def get_page(self, page: int = 1, page_size: int = 10) -> list[List]:
+    def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """Return a page of the dataset."""
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
