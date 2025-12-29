@@ -51,7 +51,7 @@ class Server:
         while len(data) < page_size and current_index < dataset_size:
             if current_index in indexed_dataset:
                 data.append(indexed_dataset[current_index])
-                current_index += 1
+            current_index += 1
         
         return {
                 "index": index,
@@ -59,4 +59,3 @@ class Server:
                 "page_size": len(data),
                 "data": data,
                 }
-                
